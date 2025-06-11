@@ -2,4 +2,53 @@
 
 grammar commands;
 
-public <command> = forward | backward | left | right | jump | sneak | attack | stop;
+public <command> =
+
+    move forward | aage jao |
+    move back | peeche jao |
+    move left | baaye muro |
+    move right | daaye muro |
+    jump | jump maar |
+    sneak | dheere chalo |
+    sprint | daud lagao |
+    walk | aaram se chalo |
+    open inventory | inventory kholo |
+    drop item | item girao |
+    drop stack | pura gira do |
+    use item | place item | item rakho | use karo |
+    attack | break block | destroy | tod do | maaro |
+    swap hands | swap hand items | haath badlo |
+    open chat | chat kholo |
+    open command | open command input | command likho |
+    open menu | close menu | menu kholo ya band karo |
+    toggle perspective | change view | view badlo |
+    open debug screen | debug screen kholo |
+    send message | message bhejo |
+    private message | private message bhejo |
+    show player list | saare players dikhao |
+    open social screen | open social interactions | social screen kholo |
+    start flying | udna shuru karo |
+    stop flying | udna band karo |
+    fly up | upar ud jao |
+    fly down | neeche ud jao |
+    pick block | block uthao |
+    hide hud | screen se sab hatao |
+    take screenshot | screenshot lo |
+    show debug info | debug info dikhao |
+    reload chunks | chunks reload karo |
+    show hitboxes | hitbox dikhao |
+    clear chat | chat clear karo |
+    show chunk borders | chunk border dikhao |
+    change camera view | camera view badlo |
+    toggle fullscreen | fullscreen on off karo |
+    
+    slot 1 | select hotbar slot 1 | pehla slot chuno |
+    slot 2 | select hotbar slot 2 | doosra slot chuno |
+    slot 3 | select hotbar slot 3 | teesra slot chuno |
+    slot 4 | select hotbar slot 4 | chautha slot chuno |
+    slot 5 | select hotbar slot 5 | paanchva slot chuno |
+    slot 6 | select hotbar slot 6 | chhatha slot chuno |
+    slot 7 | select hotbar slot 7 | saatva slot chuno |
+    slot 8 | select hotbar slot 8 | aathva slot chuno |
+    slot 9 | select hotbar slot 9 | nauva slot chuno
+;

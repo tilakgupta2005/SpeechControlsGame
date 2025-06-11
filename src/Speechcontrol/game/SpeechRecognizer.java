@@ -4,19 +4,19 @@ import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 
-public class SpeechRecognizer implements Runnable {
+public class SpeechRecognizer extends Thread {
 
     private LiveSpeechRecognizer recognizer;
     private boolean active = true;
+    private CommandExecuter executer;
 
-    public SpeechRecognizer() {
+    public SpeechRecognizer(CommandExecuter executer) {
+        this.executer = executer;
+
         try {
             Configuration configuration = new Configuration();
 
-            // Path to acoustic model
             configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-
-            // Path to dictionary and grammar files (inside your resources folder)
             configuration.setDictionaryPath("file:resources/commands.dic");
             configuration.setGrammarPath("file:resources/");
             configuration.setGrammarName("commands");
@@ -41,18 +41,17 @@ public class SpeechRecognizer implements Runnable {
                     String command = result.getHypothesis();
                     System.out.println("🗣 Recognized: " + command);
 
-                    // Handle recognized command
-                    CommandExecuter.executeCommand(command);
+                    executer.executeCommand(command); // ✅ Use instance method properly
                 }
             }
 
             recognizer.stopRecognition();
         } catch (Exception e) {
-            System.err.println("❌ Error during recognition: " + e.getMessage());
+            System.out.println("❌ Error during recognition: " + e.getMessage());
         }
     }
 
-    public void stop() {
-        active = false;
+    public void stopRecognizer() {
+    	active = false;
     }
 }

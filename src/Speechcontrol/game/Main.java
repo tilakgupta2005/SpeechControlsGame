@@ -1,11 +1,12 @@
 package Speechcontrol.game;
 
 public class Main {
-	public static void main(String[] args) {
-        SpeechRecognizer recognizer = new SpeechRecognizer();
+    public static void main(String[] args) {
+
+        CommandExecuter executer = new CommandExecuter();
+        SpeechRecognizer recognizer = new SpeechRecognizer(executer);
+
         Thread speechThread = new Thread(recognizer);
         speechThread.start();
-
-        // You can continue other tasks here
     }
 }
