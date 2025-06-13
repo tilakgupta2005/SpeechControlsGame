@@ -39,7 +39,7 @@ public class SpeechRecognizer extends Thread {
                 SpeechResult result = recognizer.getResult();
                 if (result != null) {
                     String command = result.getHypothesis();
-                    System.out.println("🗣 Recognized: " + command);
+                    System.out.println("Recognized: " + command);
 
                     executer.executeCommand(command); // ✅ Use instance method properly
                 }
