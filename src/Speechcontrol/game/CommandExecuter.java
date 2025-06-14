@@ -319,9 +319,9 @@ public class CommandExecuter {
 				//CONTINOUS Ctrl + A
 				else if(keyCode == KeyEvent.VK_CONTROL) {
 					robot.keyPress(keyCode);
-					robot.keyPress(KeyEvent.VK_A);
+					robot.keyPress(KeyEvent.VK_W);
 					activeKeys.add(keyCode);
-					activeKeys.add(KeyEvent.VK_A);
+					activeKeys.add(KeyEvent.VK_W);
 					System.out.println("Holding key: " + voiceCommand + " -> " + KeyEvent.getKeyText(keyCode) + "+ A");
 
 				}
