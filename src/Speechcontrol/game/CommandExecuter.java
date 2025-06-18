@@ -1,4 +1,4 @@
-package Speechcontrol.game;
+package speechcontrol.game;
 
 import java.awt.Robot;
 import java.awt.event.InputEvent;
@@ -24,17 +24,17 @@ public class CommandExecuter {
 	    }
 	    loadCommands();
 
-	    // ✅ Emergency shutdown hook to stop all keys on program exit
+	    //Emergency shutdown hook to stop all keys on program exit
 	    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-	        System.out.println("🛑 Program is shutting down... Releasing all keys and buttons.");
+	        System.out.println("Program is shutting down... Releasing all keys and buttons.");
 	        stopkey();
 	    }));
 
-	    // ✅ Periodic safety timer to release keys every 60 seconds (fail-safe)
+	    // Periodic safety timer to release keys every 60 seconds (fail-safe)
 	    Timer timer = new Timer(true); // true = run as daemon (won't block shutdown)
 	    timer.schedule(new TimerTask() {
 	        public void run() {
-	            System.out.println("⏱️ Auto-stop safety triggered: releasing all keys/buttons.");
+	            System.out.println("Auto-stop safety triggered: releasing all keys/buttons.");
 	            stopkey();
 	        }
 	    }, 60000, 60000); // first after 60s, then every 60s
@@ -266,7 +266,6 @@ public class CommandExecuter {
 		// Left Click - Attack / Break Block
 		singleKeyMap.put("tod do", InputEvent.BUTTON1_DOWN_MASK);
 		singleKeyMap.put("maaro", InputEvent.BUTTON1_DOWN_MASK);
-		singleKeyMap.put("attack karo", InputEvent.BUTTON1_DOWN_MASK);
 
 		singleKeyMap.put("stop", -9468113);
 		singleKeyMap.put("ruk jao", -9468113);
@@ -278,6 +277,8 @@ public class CommandExecuter {
 	public void stopkey() {
 		System.out.println("Stopping all active keys and buttons...");
 		for (int key : activeKeys) {
+			if (key == InputEvent.BUTTON1_DOWN_MASK)
+				robot.mouseRelease(key);
 			robot.keyRelease(key);
 		}
 		activeKeys.clear();
@@ -306,7 +307,7 @@ public class CommandExecuter {
 					robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
 				}
 				//CONTINOUS PRESS KEY A,W,S,D,SPACE,SHIFT
-				else if(keyCode == KeyEvent.VK_A ||keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_D || voiceCommand.equals("Sky ki taraf jao") || voiceCommand.equals("Ooncha jao")|| voiceCommand.equals("Upar ud jao") || voiceCommand.equals("Fly Up") || keyCode == KeyEvent.VK_SHIFT) {
+				else if(keyCode == KeyEvent.VK_A ||keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_D || voiceCommand.equals("sky ki taraf jao") || voiceCommand.equals("ooncha jao")|| voiceCommand.equals("upar ud jao") || voiceCommand.equals("fly up") || keyCode == KeyEvent.VK_SHIFT) {
 					robot.keyPress(keyCode);
 					activeKeys.add(keyCode);
 					System.out.println("Holding key: " + voiceCommand + " -> " + KeyEvent.getKeyText(keyCode));
@@ -315,6 +316,7 @@ public class CommandExecuter {
 				else if(keyCode == InputEvent.BUTTON1_DOWN_MASK) {
 					System.out.println("Mouse Left Click: " + voiceCommand);
 					robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+					activeKeys.add(keyCode);
 				}
 				//CONTINOUS Ctrl + A
 				else if(keyCode == KeyEvent.VK_CONTROL) {
