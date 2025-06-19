@@ -24,7 +24,7 @@
 
 ### ✅ `speechcontrolsgame-template-1.21`
 - Requires **Fabric loader** and **Fabric API**.
-- Compatible with **Minecraft 1.18**.
+- Compatible with **Minecraft 1.21+**.
 - Packaged as a full Minecraft mod (`.jar` file).
 
 ---
@@ -41,14 +41,14 @@
 ## 🧰 Requirements
 
 ### ✅ For Both Versions:
-- **Java 17+**
+- **Java 21+**
 - **CMU Sphinx** libraries
 - Microphone connected to the system
 - Basic Java knowledge (for customization)
 
 ### ✅ For Fabric Mod Version:
-- **Minecraft 1.18+**
-- **Fabric Loader 0.12.12+**
+- **Minecraft 1.21+**
+- **Fabric Loader 0.16.14+**
 - **Fabric API Depends on MC version**
 
 ---
