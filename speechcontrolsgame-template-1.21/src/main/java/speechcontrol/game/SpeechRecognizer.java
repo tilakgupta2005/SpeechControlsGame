@@ -18,7 +18,7 @@ public class SpeechRecognizer extends Thread {
         this.executer = executer;
 
         try {
-            String basePath = System.getProperty("user.home") + "/AppData/Roaming/.minecraft/config/speechcontrolsgame";
+            String basePath = System.getProperty("user.home") + "/AppData/Roaming/.minecraft/config";
             System.out.println(basePath);
 
             Configuration configuration = new Configuration();

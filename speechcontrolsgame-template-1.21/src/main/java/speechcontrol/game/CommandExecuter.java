@@ -303,11 +303,17 @@ public class CommandExecuter {
 				if (keyCode == InputEvent.BUTTON3_DOWN_MASK) {
 					System.out.println("Mouse Right Click: " + voiceCommand);
 					robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
-					robot.delay(2000);
+					if(voiceCommand.equals("use karo")||voiceCommand.equals("use item")) robot.delay(2000);
 					robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
 				}
+				else if(voiceCommand.equals("sky ki taraf jao") || voiceCommand.equals("ooncha jao")|| voiceCommand.equals("upar ud jao") || voiceCommand.equals("fly up")) {
+					robot.keyPress(keyCode);
+					robot.keyPress(keyCode);
+					activeKeys.add(keyCode);
+					System.out.println("Holding key: " + voiceCommand + " -> " + KeyEvent.getKeyText(keyCode));
+				}
 				//CONTINOUS PRESS KEY A,W,S,D,SPACE,SHIFT
-				else if(keyCode == KeyEvent.VK_A ||keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_D || voiceCommand.equals("sky ki taraf jao") || voiceCommand.equals("ooncha jao")|| voiceCommand.equals("upar ud jao") || voiceCommand.equals("fly up") || keyCode == KeyEvent.VK_SHIFT) {
+				else if(keyCode == KeyEvent.VK_A ||keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_D || keyCode == KeyEvent.VK_SHIFT) {
 					robot.keyPress(keyCode);
 					activeKeys.add(keyCode);
 					System.out.println("Holding key: " + voiceCommand + " -> " + KeyEvent.getKeyText(keyCode));
