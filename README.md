@@ -61,9 +61,8 @@ Ensure these files are placed in the correct locations:
 ├── mods/ 
 │   └── speechcontrolsgame-1.0.0-remapped.jar
 └── config/
-    └── speechcontrolsgame/
-        ├── commands.gram
-        └── commands.dic</pre>
+    ├── commands.gram
+    └── commands.dic</pre>
     
 > 🎤 Make sure your microphone is properly connected and configured before launching the game.
 
