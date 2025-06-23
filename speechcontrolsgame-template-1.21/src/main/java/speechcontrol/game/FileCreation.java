@@ -210,7 +210,7 @@ public class FileCreation {
                 "| upar ud jao | ooncha jao | fly up\n" +
                 "| neeche ud jao | neeche jao | land karo\n" +
                 "| tod do | maaro | attack karo\n" +
-                "| stop | ruk jao | band karo | swim | disable;123\n";
+                "| stop | ruk jao | band karo | swim | disable;\n";
 
 
         File file1 = new File(basePath + "/commands.gram");
