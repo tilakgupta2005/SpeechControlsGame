@@ -9,16 +9,17 @@ import net.minecraft.text.Text;
 
 public class SpeechRecognizer extends Thread {
 
+    public final String basePath;
     private LiveSpeechRecognizer recognizer;
     private boolean active = true;
     private CommandExecuter executer;
 
-    public SpeechRecognizer(CommandExecuter executer) {
+    public SpeechRecognizer(CommandExecuter executer, String basePath) {
 
         this.executer = executer;
+        this.basePath = basePath;
 
         try {
-            String basePath = System.getProperty("user.home") + "/AppData/Roaming/.minecraft/config";
             System.out.println(basePath);
 
             Configuration configuration = new Configuration();
