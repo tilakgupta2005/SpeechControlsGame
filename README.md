@@ -59,10 +59,8 @@ Ensure these files are placed in the correct locations:
 
 <pre>.minecraft/
 ├── mods/ 
-│   └── speechcontrolsgame-1.0.0-remapped.jar
-└── config/
-    ├── commands.gram
-    └── commands.dic</pre>
+    └── speechcontrolsgame-1.0.0-remapped.jar
+</pre>
     
 > 🎤 Make sure your microphone is properly connected and configured before launching the game.
 

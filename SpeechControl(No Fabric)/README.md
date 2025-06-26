@@ -22,6 +22,17 @@ This folder contains a version of the Speech Control system that works without F
 
 ## 🚀 How to Run
 
+1. Open terminal
+2. Locate the file "SpeechControlsGameUniversal.jar" and copy the path of file
+3. Run `cd path of file` in the terminal
+4. Run `Java -jar SpeechControlsGameUniversal.jar`
+5. Speak commands like:
+   - `"jump"` → triggers the space key
+   - `"chod do"` → triggers the drop key
+   - `"attack"` → simulates left click
+  
+     or
+
 1. Open the project in Eclipse or any Java IDE.
 2. Ensure you have:
    - Java 8 or higher
