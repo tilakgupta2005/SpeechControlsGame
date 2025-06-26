@@ -275,12 +275,19 @@ public class CommandExecuter {
 
 	}
 
-	public void stopkey() {
+public void stopkey() {
 		System.out.println("Stopping all active keys and buttons...");
+
 		for (int key : activeKeys) {
-			if (key == InputEvent.BUTTON1_DOWN_MASK)
+			if (key == InputEvent.BUTTON1_DOWN_MASK
+					|| key == InputEvent.BUTTON2_DOWN_MASK
+					|| key == InputEvent.BUTTON3_DOWN_MASK) {
+				// Mouse buttons
 				robot.mouseRelease(key);
-			robot.keyRelease(key);
+			} else {
+				// Keyboard keys
+				robot.keyRelease(key);
+			}
 		}
 		activeKeys.clear();
 
@@ -289,6 +296,7 @@ public class CommandExecuter {
 		}
 		activeMouseButtons.clear();
 	}
+
 
 	public void executeCommand(String voiceCommand) {
 		voiceCommand = voiceCommand.trim().toLowerCase();
